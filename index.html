@@ -1,0 +1,68 @@
+<header class="top-header">
+  <div class="header-logos">
+    <img src="images/logo-alhasa.PNG" alt="شعار الأحساء" />
+    <h1>الفرص الاستثمارية – أمانة الأحساء</h1>
+    <img src="images/furas-logo.png" alt="شعار الفرص" />
+    <img src="images/momah.SVG" alt="شعار الوزارة" />
+  </div>
+</header>
+
+<section class="welcome">
+  <h2>مرحبًا بكم في بوابة الفرص الاستثمارية</h2>
+  <p>
+    توفر أمانة الأحساء مجموعة متنوعة من الفرص الاستثمارية المتميزة للمستثمرين من مختلف المجالات.
+  </p>
+  <a href="brochure.pdf" class="btn-download" download><i class="fas fa-download"></i> تحميل النشرة</a>
+</section>
+
+<div class="total-opportunities">
+  <div class="circle">
+    <?= $totalCount ?> <br>فرصة استثمارية
+  </div>
+</div>
+
+<form method="GET" class="filters">
+  <div class="filter-item">
+    <label for="search">ابحث باسم الفرصة أو الموقع...</label>
+    <input type="text" id="search" name="search" placeholder="ابحث باسم الفرصة أو الموقع..." value="<?= $_GET['search'] ?? '' ?>" />
+  </div>
+  
+  <div class="filter-item">
+    <label for="type">نوع النشاط</label>
+    <select name="type" id="type">
+      <option value="">اختر نوع النشاط</option>
+      <option value="تجاري" <?= ($_GET['type'] ?? '') === 'تجاري' ? 'selected' : '' ?>>تجاري</option>
+      <option value="ترفيهي" <?= ($_GET['type'] ?? '') === 'ترفيهي' ? 'selected' : '' ?>>ترفيهي</option>
+      <option value="خدمي" <?= ($_GET['type'] ?? '') === 'خدمي' ? 'selected' : '' ?>>خدمي</option>
+      <option value="صناعي" <?= ($_GET['type'] ?? '') === 'صناعي' ? 'selected' : '' ?>>صناعي</option>
+    </select>
+  </div>
+
+  <div class="filter-item">
+    <label for="location">الجهة</label>
+    <select name="location" id="location">
+      <option value="">اختر الجهة</option>
+      <option value="الهفوف" <?= ($_GET['location'] ?? '') === 'الهفوف' ? 'selected' : '' ?>>الهفوف</option>
+      <option value="المبرز" <?= ($_GET['location'] ?? '') === 'المبرز' ? 'selected' : '' ?>>المبرز</option>
+    </select>
+  </div>
+
+  <div class="filter-item">
+    <label for="status">الحالة</label>
+    <select name="status" id="status">
+      <option value="">اختر الحالة</option>
+      <option value="متاحة" <?= ($_GET['status'] ?? '') === 'متاحة' ? 'selected' : '' ?>>متاحة</option>
+      <option value="منتهية" <?= ($_GET['status'] ?? '') === 'منتهية' ? 'selected' : '' ?>>منتهية</option>
+    </select>
+  </div>
+
+  <button type="submit">تصفية</button>
+</form>
+
+<main class="opportunity-list" id="opportunityList">
+  <?php $i = 0; ?>
+  <?php while($row = $result->fetch_assoc()): ?>
+  <!-- Content for each opportunity card goes here -->
+  <?php $i++; ?>
+  <?php endwhile; ?>
+</main>

@@ -1,0 +1,293 @@
+/* الخط العام */
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: #f6f7fb;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  color: #222;
+}
+
+/* رأس الصفحة */
+.top-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1.5rem;
+}
+.header-logos {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-logos img {
+  height: 60px;
+}
+
+/* قسم الترحيب */
+.welcome {
+  background: linear-gradient(to left, #fbe9e7, #fff);
+  padding: 2.5rem;
+  margin: 2rem auto 1rem;
+  max-width: 1100px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+/* زر التحميل داخل قسم الترحيب */
+.welcome .btn-download {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: #8b1c2e;
+  color: white;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+.welcome .btn-download:hover {
+  background-color: #6e1623;
+}
+
+.welcome h2 {
+  font-size: 2rem;
+  color: #8b1c2e;
+  margin-bottom: 1rem;
+}
+.welcome p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* عداد الفرص بشكل دائرة */
+.total-opportunities {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto 0;
+}
+.total-opportunities .circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #fff, #fbe9e7);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #8b1c2e;
+  border: 6px solid #8b1c2e33;
+  text-align: center;
+}
+
+/* الفلاتر */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  background-color: #f0f4f7;
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.filters input,
+.filters select,
+.filters button {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  min-width: 180px;
+}
+
+.filters .search-bar {
+  flex: 1;
+  max-width: 300px;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.filters .dropdown {
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.filters .filter-btn {
+  background-color: #00695c;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.filters .filter-btn:hover {
+  background-color: #004d40;
+}
+
+/* الأزرار والفلاتر */
+.filters input:focus,
+.filters select:focus {
+  border-color: #00695c;
+  outline: none;
+}
+
+/* قائمة الفرص */
+.opportunity-list {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* البطاقة التسويقية */
+.opportunity-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  gap: 32px;
+  transition: transform 0.3s ease;
+}
+.opportunity-card-row:hover {
+  transform: translateY(-4px);
+}
+.opportunity-card-row.reversed {
+  flex-direction: row-reverse;
+}
+
+/* الخريطة */
+.opportunity-map {
+  flex: 1 1 52%;
+  max-width: 600px;
+}
+.opportunity-map iframe {
+  width: 100%;
+  height: 340px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* المحتوى النصي */
+.opportunity-info {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.opportunity-info h3 {
+  font-size: 1.7rem;
+  color: #8b1c2e;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+.opportunity-info p {
+  font-size: 1.05rem;
+  color: #333;
+  margin: 0.3rem 0;
+}
+
+/* العد التنازلي */
+.countdown, .expired {
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+.countdown {
+  background: #dff5e3;
+  color: #157d45;
+}
+.expired {
+  background: #fdeaea;
+  color: #b92e2e;
+}
+
+/* الأزرار */
+.buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 12px 20px;
+  font-size: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-details {
+  background-color: #8b1c2e;
+  color: #fff;
+}
+.btn-map {
+  background-color: #e4f2ec;
+  color: #1a7f3c;
+}
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* التذييل */
+.footer {
+  margin-top: 4rem;
+  border-top: 1px solid #ddd;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+.footer a {
+  color: #8b1c2e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* استجابة للجوال */
+@media (max-width: 768px) {
+  .opportunity-card-row,
+  .opportunity-card-row.reversed {
+    flex-direction: column;
+  }
+  .opportunity-map iframe {
+    height: 220px;
+  }
+  .header-logos {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .filters {
+    flex-direction: column;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .total-opportunities .circle {
+    width: 100px;
+    height: 100px;
+    font-size: 0.9rem;
+  }
+}

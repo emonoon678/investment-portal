@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تفاصيل الفرصة</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-logos">
+      <img src="images/logo-left.png" alt="شعار الوزارة" />
+      <h1>الفرص الاستثمارية – أمانة الأحساء</h1>
+      <img src="images/logo-right.png" alt="شعار الأمانة" />
+    </div>
+  </header>
+
+  <main class="details-container" id="detailsContainer">
+    <!-- تفاصيل الفرصة ستُعرض هنا -->
+  </main>
+
+  <footer class="footer">
+    <p>
+      تم التطوير بواسطة
+      <a href="https://mazeej.com.sa/" target="_blank">مزيج</a>
+      © 2025
+    </p>
+  </footer>
+
+<script src="data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = Number(params.get("id")); // تحويل إلى رقم
+
+  const container = document.getElementById("detailsContainer");
+  const item = opportunities.find(o => o.id === id); // تطابق صحيح
+
+  if (!item) {
+    container.innerHTML = "<p style='text-align:center; color:red'>لم يتم العثور على الفرصة المطلوبة.</p>";
+  } else {
+    const deadline = new Date(item.lastDate).getTime();
+    const now = new Date().getTime();
+    const diff = deadline - now;
+
+    let countdown = "";
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      countdown = `<p class="countdown">⏳ متبقي: ${days} يوم / ${hours} ساعة / ${minutes} دقيقة</p>`;
+    } else {
+      countdown = `<p class="expired">⛔ انتهى التقديم</p>`;
+    }
+
+    container.innerHTML = `
+      <div class="opportunity-card">
+        <div class="card-header ${item.status === "متاحة" ? "active" : "ended"}">📄 الحالة: ${item.status}</div>
+        <h3>${item.name}</h3>
+        <p>🏷️ <strong>القطاع:</strong> ${item.type}</p>
+        <p>📍 <strong>الموقع:</strong> ${item.location}</p>
+        <p>📐 <strong>المساحة:</strong> ${item.area}</p>
+        <p>⏱ <strong>مدة العقد:</strong> ${item.duration}</p>
+        <p>🗓 <strong>آخر موعد:</strong> ${new Date(item.lastDate).toLocaleDateString("ar-EG")}</p>
+        ${countdown}
+        <div class="buttons" style="margin-top:1rem">
+          <a class="details" href="https://balady.gov.sa" target="_blank">منصة فرص</a>
+          <a class="map" href="${item.map}" target="_blank">عرض الخريطة</a>
+        </div>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
